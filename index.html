@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>আমার গাড়ী ভাড়া</title>
+  
+  <!-- Fonts & CSS Link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- ========================================== -->
+  <!-- ১. নেভিগেশন বার (Header / Navbar)          -->
+  <!-- ========================================== -->
+  <header class="navbar">
+    <a href="#home" class="logo">
+      <!-- লোগো ইমেজের জায়গা -->
+      <img src="Glossy SUV Logo with Bengali Branding.png" alt="আমার গাড়ী ভাড়া" class="logo-img">
+      <span><i>আমার</i> <em>গাড়ী ভাড়া</em></span>
+    </a>
+    
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#home" class="active">হোম</a></li>
+        <li><a href="#cars">গাড়ীসমূহ</a></li>
+        <li><a href="#booking">বুকিং</a></li>
+        <li><a href="#about">আমাদের সম্পর্কে</a></li>
+        <li><a href="#contact">যোগাযোগ</a></li>
+        <li><a href="#reviews">ব্লগ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <!-- ========================================== -->
+  <!-- ২. হিরো ব্যানার (Hero Section)              -->
+  <!-- ========================================== -->
+  <section class="hero" id="home">
+    <!-- ব্যানার ব্যাকগ্রাউন্ড বা মেইন ইমেজের জায়গা -->
+    <div class="hero-bg-wrapper">
+      <img src="Banner.jpg" alt="Hero Background" class="hero-bg">
+    </div>
+
+    <div class="wrap hero-inner">
+      <div class="hero-text">
+        <h1>আপনার পছন্দের গাড়ী<br>ভাড়া নিন সহজেই!</h1>
+        <p>সেরা রেট এবং নিরাপদ ভ্রমণ আমাদের সাথে!</p>
+      </div>
+
+      <!-- হিরো কার ইমেজের জায়গা -->
+      <div class="hero-car-wrapper">
+        <img src="images/hero-car.png" alt="Featured Car" class="hero-car">
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- ৩. সার্চ / বুকিং ফর্ম (Search Box)         -->
+  <!-- ========================================== -->
+  <section class="wrap" id="booking">
+    <form class="search" action="#cars">
+      <label class="f-loc">গাড়ী নেওয়ার স্থান
+        <input type="text" value="ঢাকা" placeholder="স্থান লিখুন">
+      </label>
+      
+      <label class="f-loc">গাড়ী ফেরত দেওয়ার স্থান
+        <input type="text" value="সিলেট" placeholder="স্থান লিখুন">
+      </label>
+      
+      <label>পিকআপ তারিখ 
+        <input type="date" value="2026-11-25">
+      </label>
+      
+      <label>ড্রপ তারিখ 
+        <input type="date" value="2026-11-28">
+      </label>
+      
+      <label>সময় 
+        <input type="time" value="10:00">
+      </label>
+      
+      <button type="submit" class="btn-search">খুঁজুন</button>
+    </form>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- ৪. গাড়ীর ক্যাটাগরি (Categories)             -->
+  <!-- ========================================== -->
+  <section class="wrap section">
+    <h2 class="title">গাড়ীর ক্যাটাগরি</h2>
+    
+    <div class="cat-grid">
+      <!-- ক্যাটাগরি ১: সেডান -->
+      <article class="cat">
+        <h3>সেডান</h3>
+        <div class="cat-img">
+          <img src="ToyotaCamry.jpg" alt="সেডান">
+        </div>
+        <p>&#2547; ৪,৫০০ / দিন থেকে শুরু</p>
+        <a href="#cars" class="btn-orange">দেখুন</a>
+      </article>
+
+      <!-- ক্যাটাগরি ২: এসইউভি -->
+      <article class="cat">
+        <h3>এসইউভি</h3>
+        <div class="cat-img">
+          <img src="2024_Toyota_Land_Cruiser_J300_VX_front.jpg" alt="এসইউভি">
+        </div>
+        <p>&#2547; ৮,০০০ / দিন থেকে শুরু</p>
+        <a href="#cars" class="btn-orange">দেখুন</a>
+      </article>
+
+      <!-- ক্যাটাগরি ৩: মাইক্রোবাস -->
+      <article class="cat">
+        <h3>মাইক্রোবাস</h3>
+        <div class="cat-img">
+          <img src="Hiace-newshape.png" alt="মাইক্রোবাস">
+        </div>
+        <p>&#2547; ৭,০০০ / দিন থেকে শুরু</p>
+        <a href="#cars" class="btn-orange">দেখুন</a>
+      </article>
+    </div>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- ৫. মূল গাড়ীর তালিকা (Car Fleet List)          -->
+  <!-- ========================================== -->
+  <main class="band-blue" id="cars">
+    <div class="wrap">
+      <h2 class="title">গাড়ীসমূহ</h2>
+      
+      <div class="card-grid">
+
+        <!-- কার্ড ১: টয়োটা অ্যাক্সিও -->
+        <article class="card">
+          <input type="radio" name="car1" id="rent1" class="st-rented">
+          <input type="radio" name="car1" id="return1" class="st-free" checked>
+          
+          <div class="card-img">
+            <span class="status s-free">পাওয়া যাচ্ছে</span>
+            <span class="status s-rented">ভাড়া হয়েছে</span>
+            <img src="Toyota axio.png" alt="টয়োটা অ্যাক্সিও">
+          </div>
+          
+          <div class="card-body">
+            <h3>টয়োটা অ্যাক্সিও <span class="year">২০১৮</span></h3>
+            <ul class="specs">
+              <li><b>৫</b> সিট</li>
+              <li><b>অটোমেটিক</b></li>
+              <li><b>অকটেন</b></li>
+            </ul>
+            <div class="price">&#2547;৪,৫০০ <small>/ দিন</small></div>
+          </div>
+          
+          <div class="card-actions">
+            <label for="rent1" class="btn btn-rent">ভাড়া নিন</label>
+            <label for="return1" class="btn btn-return">ফেরত দিন</label>
+          </div>
+        </article>
+
+        <!-- কার্ড ২: হোন্ডা সিভিক -->
+        <article class="card">
+          <input type="radio" name="car2" id="rent2" class="st-rented">
+          <input type="radio" name="car2" id="return2" class="st-free" checked>
+          
+          <div class="card-img">
+            <span class="status s-free">পাওয়া যাচ্ছে</span>
+            <span class="status s-rented">ভাড়া হয়েছে</span>
+            <img src="civic-exterior-right-front-three-quarter-148155.avif" alt="হোন্ডা সিভিক">
+          </div>
+          
+          <div class="card-body">
+            <h3>হোন্ডা সিভিক <span class="year">২০১৯</span></h3>
+            <ul class="specs">
+              <li><b>৫</b> সিট</li>
+              <li><b>অটোমেটিক</b></li>
+              <li><b>পেট্রোল</b></li>
+            </ul>
+            <div class="price">&#2547;৬,৫০০ <small>/ দিন</small></div>
+          </div>
+          
+          <div class="card-actions">
+            <label for="rent2" class="btn btn-rent">ভাড়া নিন</label>
+            <label for="return2" class="btn btn-return">ফেরত দিন</label>
+          </div>
+        </article>
+
+        <!-- কার্ড ৩: টয়োটা প্রিমিও -->
+        <article class="card">
+          <input type="radio" name="car3" id="rent3" class="st-rented">
+          <input type="radio" name="car3" id="return3" class="st-free" checked>
+          
+          <div class="card-img">
+            <span class="status s-free">পাওয়া যাচ্ছে</span>
+            <span class="status s-rented">ভাড়া হয়েছে</span>
+            <img src="20230220184240076.jpg" alt="টয়োটা প্রিমিও">
+          </div>
+          
+          <div class="card-body">
+            <h3>টয়োটা প্রিমিও <span class="year">২০১৭</span></h3>
+            <ul class="specs">
+              <li><b>৫</b> সিট</li>
+              <li><b>অটোমেটিক</b></li>
+              <li><b>অকটেন</b></li>
+            </ul>
+            <div class="price">&#2547;৫,০০০ <small>/ দিন</small></div>
+          </div>
+          
+          <div class="card-actions">
+            <label for="rent3" class="btn btn-rent">ভাড়া নিন</label>
+            <label for="return3" class="btn btn-return">ফেরত দিন</label>
+          </div>
+        </article>
+
+        <!-- কার্ড ৪: টয়োটা নোহ -->
+        <article class="card">
+          <input type="radio" name="car4" id="rent4" class="st-rented">
+          <input type="radio" name="car4" id="return4" class="st-free" checked>
+          
+          <div class="card-img">
+            <span class="status s-free">পাওয়া যাচ্ছে</span>
+            <span class="status s-rented">ভাড়া হয়েছে</span>
+            <img src="2nd_generation_Toyota_Noah.jpg" alt="টয়োটা নোহ">
+          </div>
+          
+          <div class="card-body">
+            <h3>টয়োটা নোহ <span class="year">২০১৬</span></h3>
+            <ul class="specs">
+              <li><b>৮</b> সিট</li>
+              <li><b>অটোমেটিক</b></li>
+              <li><b>অকটেন</b></li>
+            </ul>
+            <div class="price">&#2547;৭,০০০ <small>/ দিন</small></div>
+          </div>
+          
+          <div class="card-actions">
+            <label for="rent4" class="btn btn-rent">ভাড়া নিন</label>
+            <label for="return4" class="btn btn-return">ফেরত দিন</label>
+          </div>
+        </article>
+
+        <!-- কার্ড ৫: হুন্ডাই টাকসন -->
+        <article class="card">
+          <input type="radio" name="car5" id="rent5" class="st-rented">
+          <input type="radio" name="car5" id="return5" class="st-free" checked>
+          
+          <div class="card-img">
+            <span class="status s-free">পাওয়া যাচ্ছে</span>
+            <span class="status s-rented">ভাড়া হয়েছে</span>
+            <img src="Creta_news.jpg" alt="হুন্ডাই টাকসন">
+          </div>
+          
+          <div class="card-body">
+            <h3>হুন্ডাই টাকসন <span class="year">২০২০</span></h3>
+            <ul class="specs">
+              <li><b>৫</b> সিট</li>
+              <li><b>অটোমেটিক</b></li>
+              <li><b>পেট্রোল</b></li>
+            </ul>
+            <div class="price">&#2547;৯,০০০ <small>/ দিন</small></div>
+          </div>
+          
+          <div class="card-actions">
+            <label for="rent5" class="btn btn-rent">ভাড়া নিন</label>
+            <label for="return5" class="btn btn-return">ফেরত দিন</label>
+          </div>
+        </article>
+
+        <!-- কার্ড ৬: মিতসুবিশি পাজেরো -->
+        <article class="card">
+          <input type="radio" name="car6" id="rent6" class="st-rented">
+          <input type="radio" name="car6" id="return6" class="st-free" checked>
+          
+          <div class="card-img">
+            <span class="status s-free">পাওয়া যাচ্ছে</span>
+            <span class="status s-rented">ভাড়া হয়েছে</span>
+            <img src="157886f7-f7ab-45c8-b547-367bc73c8a72.avif" alt="মিতসুবিশি পাজেরো">
+          </div>
+          
+          <div class="card-body">
+            <h3>মিতসুবিশি পাজেরো <span class="year">২০১৯</span></h3>
+            <ul class="specs">
+              <li><b>৭</b> সিট</li>
+              <li><b>অটোমেটিক</b></li>
+              <li><b>ডিজেল</b></li>
+            </ul>
+            <div class="price">&#2547;১২,০০০ <small>/ দিন</small></div>
+          </div>
+          
+          <div class="card-actions">
+            <label for="rent6" class="btn btn-rent">ভাড়া নিন</label>
+            <label for="return6" class="btn btn-return">ফেরত দিন</label>
+          </div>
+        </article>
+
+        <!-- কার্ড ৭: নিসান এক্স-ট্রেইল -->
+        <article class="card">
+          <input type="radio" name="car7" id="rent7" class="st-rented">
+          <input type="radio" name="car7" id="return7" class="st-free" checked>
+          
+          <div class="card-img">
+            <span class="status s-free">পাওয়া যাচ্ছে</span>
+            <span class="status s-rented">ভাড়া হয়েছে</span>
+            <img src="Nissan X Trail.jpg" alt="নিসান এক্স-ট্রেইল">
+          </div>
+          
+          <div class="card-body">
+            <h3>নিসান এক্স-ট্রেইল <span class="year">২০১৮</span></h3>
+            <ul class="specs">
+              <li><b>৫</b> সিট</li>
+              <li><b>অটোমেটিক</b></li>
+              <li><b>পেট্রোল</b></li>
+            </ul>
+            <div class="price">&#2547;৮,০০০ <small>/ দিন</small></div>
+          </div>
+          
+          <div class="card-actions">
+            <label for="rent7" class="btn btn-rent">ভাড়া নিন</label>
+            <label for="return7" class="btn btn-return">ফেরত দিন</label>
+          </div>
+        </article>
+
+        <!-- কার্ড ৮: টয়োটা হায়েস -->
+        <article class="card">
+          <input type="radio" name="car8" id="rent8" class="st-rented">
+          <input type="radio" name="car8" id="return8" class="st-free" checked>
+          
+          <div class="card-img">
+            <span class="status s-free">পাওয়া যাচ্ছে</span>
+            <span class="status s-rented">ভাড়া হয়েছে</span>
+            <img src="toyota-hiace-front-angle-low-view-827028.webp" alt="টয়োটা হায়েস">
+          </div>
+          
+          <div class="card-body">
+            <h3>টয়োটা হায়েস <span class="year">২০১৭</span></h3>
+            <ul class="specs">
+              <li><b>১২</b> সিট</li>
+              <li><b>ম্যানুয়াল</b></li>
+              <li><b>ডিজেল</b></li>
+            </ul>
+            <div class="price">&#2547;৯,৫০০ <small>/ দিন</small></div>
+          </div>
+          
+          <div class="card-actions">
+            <label for="rent8" class="btn btn-rent">ভাড়া নিন</label>
+            <label for="return8" class="btn btn-return">ফেরত দিন</label>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </main>
+
+
+  <!-- ========================================== -->
+  <!-- ৬. রিভিউ / ব্যবহারকারীদের মতামত            -->
+  <!-- ========================================== -->
+  <section class="wrap section" id="reviews">
+    <div class="review">
+      <div class="review-car">
+        <img src="Hyundai Creta Orange SUV Cutout.png" alt="গাড়ীর ছবি">
+      </div>
+      <div class="review-text">
+        <h2>ব্যবহারকারীদের মতামত</h2>
+        <blockquote>গাড়ী ভাড়া নেওয়া এত সহজ হবে ভাবিনি। গাড়ী পরিষ্কার ছিল, দামও ন্যায্য, আর ফেরত দেওয়াও ঝামেলাহীন।</blockquote>
+        <div class="person">
+          <span class="avatar">ক</span>
+          <div>
+            <b>আবদুল করিম</b><br>
+            <small>ঢাকা</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- ৭. কেন আমাদের নির্বাচন করবেন (Features)       -->
+  <!-- ========================================== -->
+  <section class="wrap section" id="about">
+    <h2 class="title">কেন আমাদের নির্বাচন করবেন?</h2>
+    
+    <div class="why-grid">
+      <div class="why">
+        <img src="Glossy Car Shield with Checkmark.png" alt="নির্ভরযোগ্য আইকন" class="why-icon">
+        <h3>নির্ভরযোগ্য</h3>
+        <p>নিয়মিত পরীক্ষিত ও পরিষ্কার গাড়ী</p>
+      </div>
+      
+      <div class="why">
+        <img src="Fair price tag with shield and coins.png" alt="সাশ্রয়ী আইকন" class="why-icon">
+        <h3>সাশ্রয়ী</h3>
+        <p>ন্যায্য দাম, কোনো লুকানো খরচ নেই</p>
+      </div>
+      
+      <div class="why">
+        <img src="24_7 Bengali Customer Support.png" alt="সহায়তা আইকন" class="why-icon">
+        <h3>সহায়তা</h3>
+        <p>প্রতিদিন সকাল ৯টা থেকে রাত ৯টা পর্যন্ত</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- ৮. ফুটার (Footer Section)                  -->
+  <!-- ========================================== -->
+  <footer class="footer" id="contact">
+    <div class="wrap footer-grid">
+      <div>
+        <p class="f-logo"><i>আমার</i> <em>গাড়ী ভাড়া</em></p>
+        <p>ফোন: ০১৭০০-০০০০০০</p>
+        <p>ইমেইল: info@amargarirent.com</p>
+      </div>
+      
+      <div>
+        <h3>হোম</h3>
+        <ul>
+          <li><a href="#home">হোম</a></li>
+          <li><a href="#cars">গাড়ীসমূহ</a></li>
+          <li><a href="#booking">বুকিং</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3>লিংক</h3>
+        <ul>
+          <li><a href="#about">আমাদের সম্পর্কে</a></li>
+          <li><a href="#reviews">মতামত</a></li>
+          <li><a href="#contact">যোগাযোগ</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3>যোগাযোগ করুন</h3>
+        <div class="social">
+          <a href="#">FB</a>
+          <a href="#">LN</a>
+          <a href="#">TW</a>
+          <a href="#">YT</a>
+        </div>
+        <p>ঢাকা, বাংলাদেশ</p>
+      </div>
+    </div>
+    
+    <p class="copy">&copy; ২০২৬ আমার গাড়ী ভাড়া। সর্বস্বত্ব সংরক্ষিত।</p>
+  </footer>
+
+</body>
+</html>
