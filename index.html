@@ -3,7 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>আমার গাড়ী ভাড়া</title>
+  <title>আমার গাড়ী ভাড়া | সেডান, এসইউভি ও মাইক্রোবাস ভাড়া</title>
+  <meta name="description" content="সেডান, এসইউভি ও মাইক্রোবাস ভাড়া নিন সহজেই। ন্যায্য দাম, কোনো লুকানো খরচ নেই — সেরা রেট এবং নিরাপদ ভ্রমণ আমাদের সাথে!">
+  <meta name="theme-color" content="#0b5cab">
+  <link rel="canonical" href="https://irfansifat56-u.github.io/web_lab_project_2nd_semester/">
+  <link rel="icon" type="image/png" href="Glossy SUV Logo with Bengali Branding.png">
+
+  <!-- Open Graph / Twitter (শেয়ার করলে প্রিভিউ দেখাবে) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="bn_BD">
+  <meta property="og:site_name" content="আমার গাড়ী ভাড়া">
+  <meta property="og:title" content="আমার গাড়ী ভাড়া">
+  <meta property="og:description" content="সেডান, এসইউভি ও মাইক্রোবাস ভাড়া নিন সহজেই। ন্যায্য দাম, কোনো লুকানো খরচ নেই — সেরা রেট এবং নিরাপদ ভ্রমণ আমাদের সাথে!">
+  <meta property="og:url" content="https://irfansifat56-u.github.io/web_lab_project_2nd_semester/">
+  <meta property="og:image" content="https://irfansifat56-u.github.io/web_lab_project_2nd_semester/Banner.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   
   <!-- Fonts & CSS Link -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +37,11 @@
       <span><i>আমার</i> <em>গাড়ী ভাড়া</em></span>
     </a>
     
-    <nav>
+    <!-- মোবাইল হ্যামবার্গার মেনু (শুধু CSS) -->
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="মেনু খুলুন বা বন্ধ করুন">
+    <label for="menu-toggle" class="menu-btn" aria-hidden="true"><span></span></label>
+
+    <nav aria-label="প্রধান মেনু">
       <ul class="nav-links">
         <li><a href="#home" class="active">হোম</a></li>
         <li><a href="#cars">গাড়ীসমূহ</a></li>
@@ -35,6 +53,8 @@
     </nav>
   </header>
 
+  <main>
+
 
   <!-- ========================================== -->
   <!-- ২. হিরো ব্যানার (Hero Section)              -->
@@ -42,7 +62,7 @@
   <section class="hero" id="home">
     <!-- ব্যানার ব্যাকগ্রাউন্ড বা মেইন ইমেজের জায়গা -->
     <div class="hero-bg-wrapper">
-      <img src="Banner.jpg" alt="Hero Background" class="hero-bg">
+      <img src="Banner 2.0.jpg" alt="Hero Background" class="hero-bg" fetchpriority="high">
     </div>
 
     <div class="wrap hero-inner">
@@ -52,7 +72,9 @@
       </div>
 
       <!-- হিরো কার ইমেজের জায়গা -->
-      
+      <div class="hero-car-wrapper">
+        <img src="Hero car.png" alt="Featured Car" class="hero-car">
+      </div>
     </div>
   </section>
 
@@ -60,29 +82,44 @@
   <!-- ========================================== -->
   <!-- ৩. সার্চ / বুকিং ফর্ম (Search Box)         -->
   <!-- ========================================== -->
-  <section class="wrap" id="booking">
+  <section class="wrap" id="booking" aria-label="গাড়ী খোঁজার ফর্ম">
     <form class="search" action="#cars">
       <label class="f-loc">গাড়ী নেওয়ার স্থান
-        <input type="text" value="ঢাকা" placeholder="স্থান লিখুন">
+        <input type="text" name="pickup_location" value="ঢাকা" placeholder="স্থান লিখুন" list="locations" required autocomplete="off">
       </label>
       
       <label class="f-loc">গাড়ী ফেরত দেওয়ার স্থান
-        <input type="text" value="সিলেট" placeholder="স্থান লিখুন">
+        <input type="text" name="return_location" value="সিলেট" placeholder="স্থান লিখুন" list="locations" required autocomplete="off">
       </label>
       
       <label>পিকআপ তারিখ 
-        <input type="date" value="2026-11-25">
+        <input type="date" name="pickup_date" value="2026-11-25" min="2026-11-14" required>
       </label>
       
       <label>ড্রপ তারিখ 
-        <input type="date" value="2026-11-28">
+        <input type="date" name="drop_date" value="2026-11-28" min="2026-11-14" required>
       </label>
       
       <label>সময় 
-        <input type="time" value="10:00">
+        <input type="time" name="pickup_time" value="10:00" required>
       </label>
       
       <button type="submit" class="btn-search">খুঁজুন</button>
+
+      <datalist id="locations">
+        <option value="ঢাকা"></option>
+        <option value="চট্টগ্রাম"></option>
+        <option value="সিলেট"></option>
+        <option value="রাজশাহী"></option>
+        <option value="খুলনা"></option>
+        <option value="বরিশাল"></option>
+        <option value="রংপুর"></option>
+        <option value="ময়মনসিংহ"></option>
+        <option value="কক্সবাজার"></option>
+        <option value="কুমিল্লা"></option>
+        <option value="গাজীপুর"></option>
+        <option value="নারায়ণগঞ্জ"></option>
+      </datalist>
     </form>
   </section>
 
@@ -98,7 +135,7 @@
       <article class="cat">
         <h3>সেডান</h3>
         <div class="cat-img">
-          <img src="ToyotaCamry.jpg" alt="সেডান">
+          <img src="ToyotaCamry.jpg" alt="সেডান" loading="lazy" decoding="async">
         </div>
         <p>&#2547; ৪,৫০০ / দিন থেকে শুরু</p>
         <a href="#cars" class="btn-orange">দেখুন</a>
@@ -108,7 +145,7 @@
       <article class="cat">
         <h3>এসইউভি</h3>
         <div class="cat-img">
-          <img src="2024_Toyota_Land_Cruiser_J300_VX_front.jpg" alt="এসইউভি">
+          <img src="2024_Toyota_Land_Cruiser_J300_VX_front.jpg" alt="এসইউভি" loading="lazy" decoding="async">
         </div>
         <p>&#2547; ৮,০০০ / দিন থেকে শুরু</p>
         <a href="#cars" class="btn-orange">দেখুন</a>
@@ -118,7 +155,7 @@
       <article class="cat">
         <h3>মাইক্রোবাস</h3>
         <div class="cat-img">
-          <img src="Hiace-newshape.png" alt="মাইক্রোবাস">
+          <img src="Hiace-newshape.png" alt="মাইক্রোবাস" loading="lazy" decoding="async">
         </div>
         <p>&#2547; ৭,০০০ / দিন থেকে শুরু</p>
         <a href="#cars" class="btn-orange">দেখুন</a>
@@ -130,21 +167,21 @@
   <!-- ========================================== -->
   <!-- ৫. মূল গাড়ীর তালিকা (Car Fleet List)          -->
   <!-- ========================================== -->
-  <main class="band-blue" id="cars">
+  <section class="band-blue" id="cars">
     <div class="wrap">
       <h2 class="title">গাড়ীসমূহ</h2>
       
       <div class="card-grid">
 
         <!-- কার্ড ১: টয়োটা অ্যাক্সিও -->
-        <article class="card">
+        <article class="card" id="car1">
           <input type="radio" name="car1" id="rent1" class="st-rented">
           <input type="radio" name="car1" id="return1" class="st-free" checked>
           
           <div class="card-img">
             <span class="status s-free">পাওয়া যাচ্ছে</span>
             <span class="status s-rented">ভাড়া হয়েছে</span>
-            <img src="Toyota axio.png" alt="টয়োটা অ্যাক্সিও">
+            <img src="Toyota axio.png" alt="টয়োটা অ্যাক্সিও" loading="lazy" decoding="async">
           </div>
           
           <div class="card-body">
@@ -160,18 +197,19 @@
           <div class="card-actions">
             <label for="rent1" class="btn btn-rent">ভাড়া নিন</label>
             <label for="return1" class="btn btn-return">ফেরত দিন</label>
+            <a href="#car1-details" class="btn btn-details">বিস্তারিত দেখুন</a>
           </div>
         </article>
 
         <!-- কার্ড ২: হোন্ডা সিভিক -->
-        <article class="card">
+        <article class="card" id="car2">
           <input type="radio" name="car2" id="rent2" class="st-rented">
           <input type="radio" name="car2" id="return2" class="st-free" checked>
           
           <div class="card-img">
             <span class="status s-free">পাওয়া যাচ্ছে</span>
             <span class="status s-rented">ভাড়া হয়েছে</span>
-            <img src="civic-exterior-right-front-three-quarter-148155.avif" alt="হোন্ডা সিভিক">
+            <img src="civic-exterior-right-front-three-quarter-148155.avif" alt="হোন্ডা সিভিক" loading="lazy" decoding="async">
           </div>
           
           <div class="card-body">
@@ -187,18 +225,19 @@
           <div class="card-actions">
             <label for="rent2" class="btn btn-rent">ভাড়া নিন</label>
             <label for="return2" class="btn btn-return">ফেরত দিন</label>
+            <a href="#car2-details" class="btn btn-details">বিস্তারিত দেখুন</a>
           </div>
         </article>
 
         <!-- কার্ড ৩: টয়োটা প্রিমিও -->
-        <article class="card">
+        <article class="card" id="car3">
           <input type="radio" name="car3" id="rent3" class="st-rented">
           <input type="radio" name="car3" id="return3" class="st-free" checked>
           
           <div class="card-img">
             <span class="status s-free">পাওয়া যাচ্ছে</span>
             <span class="status s-rented">ভাড়া হয়েছে</span>
-            <img src="20230220184240076.jpg" alt="টয়োটা প্রিমিও">
+            <img src="20230220184240076.jpg" alt="টয়োটা প্রিমিও" loading="lazy" decoding="async">
           </div>
           
           <div class="card-body">
@@ -214,18 +253,19 @@
           <div class="card-actions">
             <label for="rent3" class="btn btn-rent">ভাড়া নিন</label>
             <label for="return3" class="btn btn-return">ফেরত দিন</label>
+            <a href="#car3-details" class="btn btn-details">বিস্তারিত দেখুন</a>
           </div>
         </article>
 
         <!-- কার্ড ৪: টয়োটা নোহ -->
-        <article class="card">
+        <article class="card" id="car4">
           <input type="radio" name="car4" id="rent4" class="st-rented">
           <input type="radio" name="car4" id="return4" class="st-free" checked>
           
           <div class="card-img">
             <span class="status s-free">পাওয়া যাচ্ছে</span>
             <span class="status s-rented">ভাড়া হয়েছে</span>
-            <img src="2nd_generation_Toyota_Noah.jpg" alt="টয়োটা নোহ">
+            <img src="2nd_generation_Toyota_Noah.jpg" alt="টয়োটা নোহ" loading="lazy" decoding="async">
           </div>
           
           <div class="card-body">
@@ -241,18 +281,19 @@
           <div class="card-actions">
             <label for="rent4" class="btn btn-rent">ভাড়া নিন</label>
             <label for="return4" class="btn btn-return">ফেরত দিন</label>
+            <a href="#car4-details" class="btn btn-details">বিস্তারিত দেখুন</a>
           </div>
         </article>
 
         <!-- কার্ড ৫: হুন্ডাই টাকসন -->
-        <article class="card">
+        <article class="card" id="car5">
           <input type="radio" name="car5" id="rent5" class="st-rented">
           <input type="radio" name="car5" id="return5" class="st-free" checked>
           
           <div class="card-img">
             <span class="status s-free">পাওয়া যাচ্ছে</span>
             <span class="status s-rented">ভাড়া হয়েছে</span>
-            <img src="Creta_news.jpg" alt="হুন্ডাই টাকসন">
+            <img src="Creta_news.jpg" alt="হুন্ডাই টাকসন" loading="lazy" decoding="async">
           </div>
           
           <div class="card-body">
@@ -268,18 +309,19 @@
           <div class="card-actions">
             <label for="rent5" class="btn btn-rent">ভাড়া নিন</label>
             <label for="return5" class="btn btn-return">ফেরত দিন</label>
+            <a href="#car5-details" class="btn btn-details">বিস্তারিত দেখুন</a>
           </div>
         </article>
 
         <!-- কার্ড ৬: মিতসুবিশি পাজেরো -->
-        <article class="card">
+        <article class="card" id="car6">
           <input type="radio" name="car6" id="rent6" class="st-rented">
           <input type="radio" name="car6" id="return6" class="st-free" checked>
           
           <div class="card-img">
             <span class="status s-free">পাওয়া যাচ্ছে</span>
             <span class="status s-rented">ভাড়া হয়েছে</span>
-            <img src="157886f7-f7ab-45c8-b547-367bc73c8a72.avif" alt="মিতসুবিশি পাজেরো">
+            <img src="157886f7-f7ab-45c8-b547-367bc73c8a72.avif" alt="মিতসুবিশি পাজেরো" loading="lazy" decoding="async">
           </div>
           
           <div class="card-body">
@@ -295,18 +337,19 @@
           <div class="card-actions">
             <label for="rent6" class="btn btn-rent">ভাড়া নিন</label>
             <label for="return6" class="btn btn-return">ফেরত দিন</label>
+            <a href="#car6-details" class="btn btn-details">বিস্তারিত দেখুন</a>
           </div>
         </article>
 
         <!-- কার্ড ৭: নিসান এক্স-ট্রেইল -->
-        <article class="card">
+        <article class="card" id="car7">
           <input type="radio" name="car7" id="rent7" class="st-rented">
           <input type="radio" name="car7" id="return7" class="st-free" checked>
           
           <div class="card-img">
             <span class="status s-free">পাওয়া যাচ্ছে</span>
             <span class="status s-rented">ভাড়া হয়েছে</span>
-            <img src="Nissan X Trail.jpg" alt="নিসান এক্স-ট্রেইল">
+            <img src="Nissan X Trail.jpg" alt="নিসান এক্স-ট্রেইল" loading="lazy" decoding="async">
           </div>
           
           <div class="card-body">
@@ -322,18 +365,19 @@
           <div class="card-actions">
             <label for="rent7" class="btn btn-rent">ভাড়া নিন</label>
             <label for="return7" class="btn btn-return">ফেরত দিন</label>
+            <a href="#car7-details" class="btn btn-details">বিস্তারিত দেখুন</a>
           </div>
         </article>
 
         <!-- কার্ড ৮: টয়োটা হায়েস -->
-        <article class="card">
+        <article class="card" id="car8">
           <input type="radio" name="car8" id="rent8" class="st-rented">
           <input type="radio" name="car8" id="return8" class="st-free" checked>
           
           <div class="card-img">
             <span class="status s-free">পাওয়া যাচ্ছে</span>
             <span class="status s-rented">ভাড়া হয়েছে</span>
-            <img src="toyota-hiace-front-angle-low-view-827028.webp" alt="টয়োটা হায়েস">
+            <img src="toyota-hiace-front-angle-low-view-827028.webp" alt="টয়োটা হায়েস" loading="lazy" decoding="async">
           </div>
           
           <div class="card-body">
@@ -349,12 +393,13 @@
           <div class="card-actions">
             <label for="rent8" class="btn btn-rent">ভাড়া নিন</label>
             <label for="return8" class="btn btn-return">ফেরত দিন</label>
+            <a href="#car8-details" class="btn btn-details">বিস্তারিত দেখুন</a>
           </div>
         </article>
 
       </div>
     </div>
-  </main>
+  </section>
 
 
   <!-- ========================================== -->
@@ -363,18 +408,43 @@
   <section class="wrap section" id="reviews">
     <div class="review">
       <div class="review-car">
-        <img src="Hyundai Creta Orange SUV Cutout.png" alt="গাড়ীর ছবি">
+        <img src="Hyundai Creta Orange SUV Cutout.png" alt="গাড়ীর ছবি" loading="lazy" decoding="async">
       </div>
-      <div class="review-text">
+      <div class="review-body">
         <h2>ব্যবহারকারীদের মতামত</h2>
-        <blockquote>গাড়ী ভাড়া নেওয়া এত সহজ হবে ভাবিনি। গাড়ী পরিষ্কার ছিল, দামও ন্যায্য, আর ফেরত দেওয়াও ঝামেলাহীন।</blockquote>
-        <div class="person">
-          <span class="avatar">ক</span>
-          <div>
-            <b>আবদুল করিম</b><br>
-            <small>ঢাকা</small>
-          </div>
+        <div class="review-slider" tabindex="0" role="region" aria-label="ব্যবহারকারীদের মতামত">
+          <figure class="review-text">
+            <blockquote>গাড়ী ভাড়া নেওয়া এত সহজ হবে ভাবিনি। গাড়ী পরিষ্কার ছিল, দামও ন্যায্য, আর ফেরত দেওয়াও ঝামেলাহীন।</blockquote>
+            <figcaption class="person">
+              <span class="avatar">ক</span>
+              <div>
+                <b>আবদুল করিম</b><br>
+                <small>ঢাকা</small>
+              </div>
+            </figcaption>
+          </figure>
+          <figure class="review-text">
+            <blockquote>বুকিং থেকে গাড়ী বুঝে নেওয়া পর্যন্ত সবকিছু সহজ ছিল। পরিবার নিয়ে ভ্রমণে মাইক্রোবাসটা খুব আরামদায়ক ছিল।</blockquote>
+            <figcaption class="person">
+              <span class="avatar">স</span>
+              <div>
+                <b>সুমাইয়া ইসলাম</b><br>
+                <small>চট্টগ্রাম</small>
+              </div>
+            </figcaption>
+          </figure>
+          <figure class="review-text">
+            <blockquote>গাড়ীর অবস্থা ভালো ছিল এবং সময়মতো পেয়েছি। দাম নিয়ে কোনো বাড়তি ঝামেলা হয়নি।</blockquote>
+            <figcaption class="person">
+              <span class="avatar">র</span>
+              <div>
+                <b>রাফি হাসান</b><br>
+                <small>সিলেট</small>
+              </div>
+            </figcaption>
+          </figure>
         </div>
+        <p class="swipe-hint">আরও মতামত দেখতে ডানে স্ক্রল বা সোয়াইপ করুন</p>
       </div>
     </div>
   </section>
@@ -388,19 +458,19 @@
     
     <div class="why-grid">
       <div class="why">
-        <img src="Glossy Car Shield with Checkmark.png" alt="নির্ভরযোগ্য আইকন" class="why-icon">
+        <img src="Glossy Car Shield with Checkmark.png" alt="নির্ভরযোগ্য আইকন" class="why-icon" loading="lazy" decoding="async">
         <h3>নির্ভরযোগ্য</h3>
         <p>নিয়মিত পরীক্ষিত ও পরিষ্কার গাড়ী</p>
       </div>
       
       <div class="why">
-        <img src="Fair price tag with shield and coins.png" alt="সাশ্রয়ী আইকন" class="why-icon">
+        <img src="Fair price tag with shield and coins.png" alt="সাশ্রয়ী আইকন" class="why-icon" loading="lazy" decoding="async">
         <h3>সাশ্রয়ী</h3>
         <p>ন্যায্য দাম, কোনো লুকানো খরচ নেই</p>
       </div>
       
       <div class="why">
-        <img src="24_7 Bengali Customer Support.png" alt="সহায়তা আইকন" class="why-icon">
+        <img src="24_7 Bengali Customer Support.png" alt="সহায়তা আইকন" class="why-icon" loading="lazy" decoding="async">
         <h3>সহায়তা</h3>
         <p>প্রতিদিন সকাল ৯টা থেকে রাত ৯টা পর্যন্ত</p>
       </div>
@@ -408,8 +478,392 @@
   </section>
 
 
+  <!-- বিস্তারিত পপআপ: টয়োটা অ্যাক্সিও -->
+  <div class="modal" id="car1-details" role="dialog" aria-modal="true" aria-labelledby="car1-title">
+    <a href="#car1" class="modal-bg" aria-label="বন্ধ করুন"></a>
+    <div class="modal-box">
+      <a href="#car1" class="modal-close" aria-label="বন্ধ করুন">&times;</a>
+
+      <div class="gallery">
+        <input type="radio" name="g1" id="g1-1" checked>
+        <input type="radio" name="g1" id="g1-2">
+        <input type="radio" name="g1" id="g1-3">
+        <!-- ২য় ও ৩য় ছবির src এ নিজের আলাদা ছবির নাম দাও -->
+        <div class="gallery-main">
+          <img src="Toyota axio.png" alt="টয়োটা অ্যাক্সিও - ছবি 1" loading="lazy" decoding="async">
+          <img src="Toyota axio.png" alt="টয়োটা অ্যাক্সিও - ছবি 2" loading="lazy" decoding="async">
+          <img src="Toyota axio.png" alt="টয়োটা অ্যাক্সিও - ছবি 3" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery-thumbs">
+          <label for="g1-1"><img src="Toyota axio.png" alt="ছবি 1" loading="lazy" decoding="async"></label>
+          <label for="g1-2"><img src="Toyota axio.png" alt="ছবি 2" loading="lazy" decoding="async"></label>
+          <label for="g1-3"><img src="Toyota axio.png" alt="ছবি 3" loading="lazy" decoding="async"></label>
+        </div>
+      </div>
+
+      <div class="modal-info">
+        <h3 id="car1-title">টয়োটা অ্যাক্সিও <span class="year">২০১৮</span></h3>
+        <span class="modal-tag">সেডান</span>
+        <p>আরামদায়ক ও জ্বালানি সাশ্রয়ী সেডান, শহরে ও দূরের ভ্রমণে দুই কাজেই ভালো।</p>
+        <table class="spec-table">
+            <tr><th>গাড়ীর ধরন</th><td>সেডান</td></tr>
+            <tr><th>মডেল সাল</th><td>২০১৮</td></tr>
+            <tr><th>সিট</th><td>৫</td></tr>
+            <tr><th>গিয়ার</th><td>অটোমেটিক</td></tr>
+            <tr><th>জ্বালানি</th><td>অকটেন</td></tr>
+            <tr><th>ড্রাইভার</th><td>বুকিংয়ের সময় জানান</td></tr>
+        </table>
+        <div class="price">&#2547;৪,৫০০ <small>/ দিন</small></div>
+        <div class="modal-actions">
+          <a href="#booking" class="btn btn-rent">বুকিং করুন</a>
+          <a href="#car1" class="btn btn-return">বন্ধ করুন</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- বিস্তারিত পপআপ: হোন্ডা সিভিক -->
+  <div class="modal" id="car2-details" role="dialog" aria-modal="true" aria-labelledby="car2-title">
+    <a href="#car2" class="modal-bg" aria-label="বন্ধ করুন"></a>
+    <div class="modal-box">
+      <a href="#car2" class="modal-close" aria-label="বন্ধ করুন">&times;</a>
+
+      <div class="gallery">
+        <input type="radio" name="g2" id="g2-1" checked>
+        <input type="radio" name="g2" id="g2-2">
+        <input type="radio" name="g2" id="g2-3">
+        <!-- ২য় ও ৩য় ছবির src এ নিজের আলাদা ছবির নাম দাও -->
+        <div class="gallery-main">
+          <img src="civic-exterior-right-front-three-quarter-148155.avif" alt="হোন্ডা সিভিক - ছবি 1" loading="lazy" decoding="async">
+          <img src="civic-exterior-right-front-three-quarter-148155.avif" alt="হোন্ডা সিভিক - ছবি 2" loading="lazy" decoding="async">
+          <img src="civic-exterior-right-front-three-quarter-148155.avif" alt="হোন্ডা সিভিক - ছবি 3" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery-thumbs">
+          <label for="g2-1"><img src="civic-exterior-right-front-three-quarter-148155.avif" alt="ছবি 1" loading="lazy" decoding="async"></label>
+          <label for="g2-2"><img src="civic-exterior-right-front-three-quarter-148155.avif" alt="ছবি 2" loading="lazy" decoding="async"></label>
+          <label for="g2-3"><img src="civic-exterior-right-front-three-quarter-148155.avif" alt="ছবি 3" loading="lazy" decoding="async"></label>
+        </div>
+      </div>
+
+      <div class="modal-info">
+        <h3 id="car2-title">হোন্ডা সিভিক <span class="year">২০১৯</span></h3>
+        <span class="modal-tag">সেডান</span>
+        <p>আরামদায়ক ও জ্বালানি সাশ্রয়ী সেডান, শহরে ও দূরের ভ্রমণে দুই কাজেই ভালো।</p>
+        <table class="spec-table">
+            <tr><th>গাড়ীর ধরন</th><td>সেডান</td></tr>
+            <tr><th>মডেল সাল</th><td>২০১৯</td></tr>
+            <tr><th>সিট</th><td>৫</td></tr>
+            <tr><th>গিয়ার</th><td>অটোমেটিক</td></tr>
+            <tr><th>জ্বালানি</th><td>পেট্রোল</td></tr>
+            <tr><th>ড্রাইভার</th><td>বুকিংয়ের সময় জানান</td></tr>
+        </table>
+        <div class="price">&#2547;৬,৫০০ <small>/ দিন</small></div>
+        <div class="modal-actions">
+          <a href="#booking" class="btn btn-rent">বুকিং করুন</a>
+          <a href="#car2" class="btn btn-return">বন্ধ করুন</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- বিস্তারিত পপআপ: টয়োটা প্রিমিও -->
+  <div class="modal" id="car3-details" role="dialog" aria-modal="true" aria-labelledby="car3-title">
+    <a href="#car3" class="modal-bg" aria-label="বন্ধ করুন"></a>
+    <div class="modal-box">
+      <a href="#car3" class="modal-close" aria-label="বন্ধ করুন">&times;</a>
+
+      <div class="gallery">
+        <input type="radio" name="g3" id="g3-1" checked>
+        <input type="radio" name="g3" id="g3-2">
+        <input type="radio" name="g3" id="g3-3">
+        <!-- ২য় ও ৩য় ছবির src এ নিজের আলাদা ছবির নাম দাও -->
+        <div class="gallery-main">
+          <img src="20230220184240076.jpg" alt="টয়োটা প্রিমিও - ছবি 1" loading="lazy" decoding="async">
+          <img src="20230220184240076.jpg" alt="টয়োটা প্রিমিও - ছবি 2" loading="lazy" decoding="async">
+          <img src="20230220184240076.jpg" alt="টয়োটা প্রিমিও - ছবি 3" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery-thumbs">
+          <label for="g3-1"><img src="20230220184240076.jpg" alt="ছবি 1" loading="lazy" decoding="async"></label>
+          <label for="g3-2"><img src="20230220184240076.jpg" alt="ছবি 2" loading="lazy" decoding="async"></label>
+          <label for="g3-3"><img src="20230220184240076.jpg" alt="ছবি 3" loading="lazy" decoding="async"></label>
+        </div>
+      </div>
+
+      <div class="modal-info">
+        <h3 id="car3-title">টয়োটা প্রিমিও <span class="year">২০১৭</span></h3>
+        <span class="modal-tag">সেডান</span>
+        <p>আরামদায়ক ও জ্বালানি সাশ্রয়ী সেডান, শহরে ও দূরের ভ্রমণে দুই কাজেই ভালো।</p>
+        <table class="spec-table">
+            <tr><th>গাড়ীর ধরন</th><td>সেডান</td></tr>
+            <tr><th>মডেল সাল</th><td>২০১৭</td></tr>
+            <tr><th>সিট</th><td>৫</td></tr>
+            <tr><th>গিয়ার</th><td>অটোমেটিক</td></tr>
+            <tr><th>জ্বালানি</th><td>অকটেন</td></tr>
+            <tr><th>ড্রাইভার</th><td>বুকিংয়ের সময় জানান</td></tr>
+        </table>
+        <div class="price">&#2547;৫,০০০ <small>/ দিন</small></div>
+        <div class="modal-actions">
+          <a href="#booking" class="btn btn-rent">বুকিং করুন</a>
+          <a href="#car3" class="btn btn-return">বন্ধ করুন</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- বিস্তারিত পপআপ: টয়োটা নোহ -->
+  <div class="modal" id="car4-details" role="dialog" aria-modal="true" aria-labelledby="car4-title">
+    <a href="#car4" class="modal-bg" aria-label="বন্ধ করুন"></a>
+    <div class="modal-box">
+      <a href="#car4" class="modal-close" aria-label="বন্ধ করুন">&times;</a>
+
+      <div class="gallery">
+        <input type="radio" name="g4" id="g4-1" checked>
+        <input type="radio" name="g4" id="g4-2">
+        <input type="radio" name="g4" id="g4-3">
+        <!-- ২য় ও ৩য় ছবির src এ নিজের আলাদা ছবির নাম দাও -->
+        <div class="gallery-main">
+          <img src="2nd_generation_Toyota_Noah.jpg" alt="টয়োটা নোহ - ছবি 1" loading="lazy" decoding="async">
+          <img src="2nd_generation_Toyota_Noah.jpg" alt="টয়োটা নোহ - ছবি 2" loading="lazy" decoding="async">
+          <img src="2nd_generation_Toyota_Noah.jpg" alt="টয়োটা নোহ - ছবি 3" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery-thumbs">
+          <label for="g4-1"><img src="2nd_generation_Toyota_Noah.jpg" alt="ছবি 1" loading="lazy" decoding="async"></label>
+          <label for="g4-2"><img src="2nd_generation_Toyota_Noah.jpg" alt="ছবি 2" loading="lazy" decoding="async"></label>
+          <label for="g4-3"><img src="2nd_generation_Toyota_Noah.jpg" alt="ছবি 3" loading="lazy" decoding="async"></label>
+        </div>
+      </div>
+
+      <div class="modal-info">
+        <h3 id="car4-title">টয়োটা নোহ <span class="year">২০১৬</span></h3>
+        <span class="modal-tag">মাইক্রোবাস</span>
+        <p>পরিবার বা বড় দলের ভ্রমণের জন্য প্রশস্ত মাইক্রোবাস।</p>
+        <table class="spec-table">
+            <tr><th>গাড়ীর ধরন</th><td>মাইক্রোবাস</td></tr>
+            <tr><th>মডেল সাল</th><td>২০১৬</td></tr>
+            <tr><th>সিট</th><td>৮</td></tr>
+            <tr><th>গিয়ার</th><td>অটোমেটিক</td></tr>
+            <tr><th>জ্বালানি</th><td>অকটেন</td></tr>
+            <tr><th>ড্রাইভার</th><td>বুকিংয়ের সময় জানান</td></tr>
+        </table>
+        <div class="price">&#2547;৭,০০০ <small>/ দিন</small></div>
+        <div class="modal-actions">
+          <a href="#booking" class="btn btn-rent">বুকিং করুন</a>
+          <a href="#car4" class="btn btn-return">বন্ধ করুন</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- বিস্তারিত পপআপ: হুন্ডাই টাকসন -->
+  <div class="modal" id="car5-details" role="dialog" aria-modal="true" aria-labelledby="car5-title">
+    <a href="#car5" class="modal-bg" aria-label="বন্ধ করুন"></a>
+    <div class="modal-box">
+      <a href="#car5" class="modal-close" aria-label="বন্ধ করুন">&times;</a>
+
+      <div class="gallery">
+        <input type="radio" name="g5" id="g5-1" checked>
+        <input type="radio" name="g5" id="g5-2">
+        <input type="radio" name="g5" id="g5-3">
+        <!-- ২য় ও ৩য় ছবির src এ নিজের আলাদা ছবির নাম দাও -->
+        <div class="gallery-main">
+          <img src="Creta_news.jpg" alt="হুন্ডাই টাকসন - ছবি 1" loading="lazy" decoding="async">
+          <img src="Creta_news.jpg" alt="হুন্ডাই টাকসন - ছবি 2" loading="lazy" decoding="async">
+          <img src="Creta_news.jpg" alt="হুন্ডাই টাকসন - ছবি 3" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery-thumbs">
+          <label for="g5-1"><img src="Creta_news.jpg" alt="ছবি 1" loading="lazy" decoding="async"></label>
+          <label for="g5-2"><img src="Creta_news.jpg" alt="ছবি 2" loading="lazy" decoding="async"></label>
+          <label for="g5-3"><img src="Creta_news.jpg" alt="ছবি 3" loading="lazy" decoding="async"></label>
+        </div>
+      </div>
+
+      <div class="modal-info">
+        <h3 id="car5-title">হুন্ডাই টাকসন <span class="year">২০২০</span></h3>
+        <span class="modal-tag">এসইউভি</span>
+        <p>উঁচু বডির প্রশস্ত এসইউভি, দূরের পথ ও ভাঙা রাস্তার জন্য উপযুক্ত।</p>
+        <table class="spec-table">
+            <tr><th>গাড়ীর ধরন</th><td>এসইউভি</td></tr>
+            <tr><th>মডেল সাল</th><td>২০২০</td></tr>
+            <tr><th>সিট</th><td>৫</td></tr>
+            <tr><th>গিয়ার</th><td>অটোমেটিক</td></tr>
+            <tr><th>জ্বালানি</th><td>পেট্রোল</td></tr>
+            <tr><th>ড্রাইভার</th><td>বুকিংয়ের সময় জানান</td></tr>
+        </table>
+        <div class="price">&#2547;৯,০০০ <small>/ দিন</small></div>
+        <div class="modal-actions">
+          <a href="#booking" class="btn btn-rent">বুকিং করুন</a>
+          <a href="#car5" class="btn btn-return">বন্ধ করুন</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- বিস্তারিত পপআপ: মিতসুবিশি পাজেরো -->
+  <div class="modal" id="car6-details" role="dialog" aria-modal="true" aria-labelledby="car6-title">
+    <a href="#car6" class="modal-bg" aria-label="বন্ধ করুন"></a>
+    <div class="modal-box">
+      <a href="#car6" class="modal-close" aria-label="বন্ধ করুন">&times;</a>
+
+      <div class="gallery">
+        <input type="radio" name="g6" id="g6-1" checked>
+        <input type="radio" name="g6" id="g6-2">
+        <input type="radio" name="g6" id="g6-3">
+        <!-- ২য় ও ৩য় ছবির src এ নিজের আলাদা ছবির নাম দাও -->
+        <div class="gallery-main">
+          <img src="157886f7-f7ab-45c8-b547-367bc73c8a72.avif" alt="মিতসুবিশি পাজেরো - ছবি 1" loading="lazy" decoding="async">
+          <img src="157886f7-f7ab-45c8-b547-367bc73c8a72.avif" alt="মিতসুবিশি পাজেরো - ছবি 2" loading="lazy" decoding="async">
+          <img src="157886f7-f7ab-45c8-b547-367bc73c8a72.avif" alt="মিতসুবিশি পাজেরো - ছবি 3" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery-thumbs">
+          <label for="g6-1"><img src="157886f7-f7ab-45c8-b547-367bc73c8a72.avif" alt="ছবি 1" loading="lazy" decoding="async"></label>
+          <label for="g6-2"><img src="157886f7-f7ab-45c8-b547-367bc73c8a72.avif" alt="ছবি 2" loading="lazy" decoding="async"></label>
+          <label for="g6-3"><img src="157886f7-f7ab-45c8-b547-367bc73c8a72.avif" alt="ছবি 3" loading="lazy" decoding="async"></label>
+        </div>
+      </div>
+
+      <div class="modal-info">
+        <h3 id="car6-title">মিতসুবিশি পাজেরো <span class="year">২০১৯</span></h3>
+        <span class="modal-tag">এসইউভি</span>
+        <p>উঁচু বডির প্রশস্ত এসইউভি, দূরের পথ ও ভাঙা রাস্তার জন্য উপযুক্ত।</p>
+        <table class="spec-table">
+            <tr><th>গাড়ীর ধরন</th><td>এসইউভি</td></tr>
+            <tr><th>মডেল সাল</th><td>২০১৯</td></tr>
+            <tr><th>সিট</th><td>৭</td></tr>
+            <tr><th>গিয়ার</th><td>অটোমেটিক</td></tr>
+            <tr><th>জ্বালানি</th><td>ডিজেল</td></tr>
+            <tr><th>ড্রাইভার</th><td>বুকিংয়ের সময় জানান</td></tr>
+        </table>
+        <div class="price">&#2547;১২,০০০ <small>/ দিন</small></div>
+        <div class="modal-actions">
+          <a href="#booking" class="btn btn-rent">বুকিং করুন</a>
+          <a href="#car6" class="btn btn-return">বন্ধ করুন</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- বিস্তারিত পপআপ: নিসান এক্স-ট্রেইল -->
+  <div class="modal" id="car7-details" role="dialog" aria-modal="true" aria-labelledby="car7-title">
+    <a href="#car7" class="modal-bg" aria-label="বন্ধ করুন"></a>
+    <div class="modal-box">
+      <a href="#car7" class="modal-close" aria-label="বন্ধ করুন">&times;</a>
+
+      <div class="gallery">
+        <input type="radio" name="g7" id="g7-1" checked>
+        <input type="radio" name="g7" id="g7-2">
+        <input type="radio" name="g7" id="g7-3">
+        <!-- ২য় ও ৩য় ছবির src এ নিজের আলাদা ছবির নাম দাও -->
+        <div class="gallery-main">
+          <img src="Nissan X Trail.jpg" alt="নিসান এক্স-ট্রেইল - ছবি 1" loading="lazy" decoding="async">
+          <img src="Nissan X Trail.jpg" alt="নিসান এক্স-ট্রেইল - ছবি 2" loading="lazy" decoding="async">
+          <img src="Nissan X Trail.jpg" alt="নিসান এক্স-ট্রেইল - ছবি 3" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery-thumbs">
+          <label for="g7-1"><img src="Nissan X Trail.jpg" alt="ছবি 1" loading="lazy" decoding="async"></label>
+          <label for="g7-2"><img src="Nissan X Trail.jpg" alt="ছবি 2" loading="lazy" decoding="async"></label>
+          <label for="g7-3"><img src="Nissan X Trail.jpg" alt="ছবি 3" loading="lazy" decoding="async"></label>
+        </div>
+      </div>
+
+      <div class="modal-info">
+        <h3 id="car7-title">নিসান এক্স-ট্রেইল <span class="year">২০১৮</span></h3>
+        <span class="modal-tag">এসইউভি</span>
+        <p>উঁচু বডির প্রশস্ত এসইউভি, দূরের পথ ও ভাঙা রাস্তার জন্য উপযুক্ত।</p>
+        <table class="spec-table">
+            <tr><th>গাড়ীর ধরন</th><td>এসইউভি</td></tr>
+            <tr><th>মডেল সাল</th><td>২০১৮</td></tr>
+            <tr><th>সিট</th><td>৫</td></tr>
+            <tr><th>গিয়ার</th><td>অটোমেটিক</td></tr>
+            <tr><th>জ্বালানি</th><td>পেট্রোল</td></tr>
+            <tr><th>ড্রাইভার</th><td>বুকিংয়ের সময় জানান</td></tr>
+        </table>
+        <div class="price">&#2547;৮,০০০ <small>/ দিন</small></div>
+        <div class="modal-actions">
+          <a href="#booking" class="btn btn-rent">বুকিং করুন</a>
+          <a href="#car7" class="btn btn-return">বন্ধ করুন</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- বিস্তারিত পপআপ: টয়োটা হায়েস -->
+  <div class="modal" id="car8-details" role="dialog" aria-modal="true" aria-labelledby="car8-title">
+    <a href="#car8" class="modal-bg" aria-label="বন্ধ করুন"></a>
+    <div class="modal-box">
+      <a href="#car8" class="modal-close" aria-label="বন্ধ করুন">&times;</a>
+
+      <div class="gallery">
+        <input type="radio" name="g8" id="g8-1" checked>
+        <input type="radio" name="g8" id="g8-2">
+        <input type="radio" name="g8" id="g8-3">
+        <!-- ২য় ও ৩য় ছবির src এ নিজের আলাদা ছবির নাম দাও -->
+        <div class="gallery-main">
+          <img src="toyota-hiace-front-angle-low-view-827028.webp" alt="টয়োটা হায়েস - ছবি 1" loading="lazy" decoding="async">
+          <img src="toyota-hiace-front-angle-low-view-827028.webp" alt="টয়োটা হায়েস - ছবি 2" loading="lazy" decoding="async">
+          <img src="toyota-hiace-front-angle-low-view-827028.webp" alt="টয়োটা হায়েস - ছবি 3" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery-thumbs">
+          <label for="g8-1"><img src="toyota-hiace-front-angle-low-view-827028.webp" alt="ছবি 1" loading="lazy" decoding="async"></label>
+          <label for="g8-2"><img src="toyota-hiace-front-angle-low-view-827028.webp" alt="ছবি 2" loading="lazy" decoding="async"></label>
+          <label for="g8-3"><img src="toyota-hiace-front-angle-low-view-827028.webp" alt="ছবি 3" loading="lazy" decoding="async"></label>
+        </div>
+      </div>
+
+      <div class="modal-info">
+        <h3 id="car8-title">টয়োটা হায়েস <span class="year">২০১৭</span></h3>
+        <span class="modal-tag">মাইক্রোবাস</span>
+        <p>পরিবার বা বড় দলের ভ্রমণের জন্য প্রশস্ত মাইক্রোবাস।</p>
+        <table class="spec-table">
+            <tr><th>গাড়ীর ধরন</th><td>মাইক্রোবাস</td></tr>
+            <tr><th>মডেল সাল</th><td>২০১৭</td></tr>
+            <tr><th>সিট</th><td>১২</td></tr>
+            <tr><th>গিয়ার</th><td>ম্যানুয়াল</td></tr>
+            <tr><th>জ্বালানি</th><td>ডিজেল</td></tr>
+            <tr><th>ড্রাইভার</th><td>বুকিংয়ের সময় জানান</td></tr>
+        </table>
+        <div class="price">&#2547;৯,৫০০ <small>/ দিন</small></div>
+        <div class="modal-actions">
+          <a href="#booking" class="btn btn-rent">বুকিং করুন</a>
+          <a href="#car8" class="btn btn-return">বন্ধ করুন</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ========================================== -->
-  <!-- ৮. ফুটার (Footer Section)                  -->
+  <!-- ৮. সচরাচর জিজ্ঞাসা (FAQ)                    -->
+  <!-- ========================================== -->
+  <section class="wrap section" id="faq">
+    <h2 class="title">সচরাচর জিজ্ঞাসা</h2>
+
+    <div class="faq-list">
+      <details name="faq">
+        <summary>গাড়ী ভাড়া নিতে কী কী কাগজপত্র লাগবে?</summary>
+        <p>জাতীয় পরিচয়পত্র (NID) লাগবে। ড্রাইভার ছাড়া ভাড়া নিলে সাথে বৈধ ড্রাইভিং লাইসেন্সও লাগবে।</p>
+      </details>
+      <details name="faq">
+        <summary>ড্রাইভারসহ গাড়ী পাওয়া যাবে কি?</summary>
+        <p>হ্যাঁ, বুকিংয়ের সময় জানালে ড্রাইভারসহ গাড়ীর ব্যবস্থা করা হবে।</p>
+      </details>
+      <details name="faq">
+        <summary>এক শহর থেকে নিয়ে অন্য শহরে ফেরত দেওয়া যাবে?</summary>
+        <p>হ্যাঁ, উপরের ফর্মে গাড়ী নেওয়ার স্থান ও ফেরত দেওয়ার স্থান আলাদা দিতে পারবেন।</p>
+      </details>
+      <details name="faq">
+        <summary>ভাড়া কীভাবে হিসাব করা হয়?</summary>
+        <p>প্রতিটি গাড়ীর কার্ডে দিনপ্রতি ভাড়া দেওয়া আছে। কোনো লুকানো খরচ নেই।</p>
+      </details>
+      <details name="faq">
+        <summary>বুকিং বাতিল বা তারিখ পরিবর্তন করা যাবে?</summary>
+        <p>পিকআপের আগে আমাদের সাথে যোগাযোগ করলে বুকিং বাতিল বা তারিখ পরিবর্তন করা যাবে।</p>
+      </details>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ========================================== -->
+  <!-- ৯. ফুটার (Footer Section)                  -->
   <!-- ========================================== -->
   <footer class="footer" id="contact">
     <div class="wrap footer-grid">
@@ -433,6 +887,7 @@
         <ul>
           <li><a href="#about">আমাদের সম্পর্কে</a></li>
           <li><a href="#reviews">মতামত</a></li>
+          <li><a href="#faq">সচরাচর জিজ্ঞাসা</a></li>
           <li><a href="#contact">যোগাযোগ</a></li>
         </ul>
       </div>
@@ -440,10 +895,10 @@
       <div>
         <h3>যোগাযোগ করুন</h3>
         <div class="social">
-          <a href="#">FB</a>
-          <a href="#">LN</a>
-          <a href="#">TW</a>
-          <a href="#">YT</a>
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="LinkedIn">LN</a>
+          <a href="#" aria-label="Twitter">TW</a>
+          <a href="#" aria-label="YouTube">YT</a>
         </div>
         <p>ঢাকা, বাংলাদেশ</p>
       </div>
